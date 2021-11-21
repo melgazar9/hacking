@@ -17,5 +17,4 @@ WRITE_KEYLOGGED_DIR = 'keylogs/parsed_keylogs/'
 EMAIL_LOGIN_INFO = configparser.ConfigParser()
 EMAIL_LOGIN_INFO.read('/home/melgazar9/email_login_info.ini')
 
-KEYLOG_FILES = '/home/melgazar9/scripts/github/hacking/phishing/scripts/hi.tmp'
-# KEYLOG_FILES = glob.glob('./{}/*.py'.format(WRITE_KEYLOG_OUTPATH))
+KEYLOG_FILES = glob.glob('./{}/*.py'.format(WRITE_KEYLOG_OUTPATH))
