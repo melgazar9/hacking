@@ -1,6 +1,6 @@
 import datetime
 import os
-import platform
+import getpass
 import glob
 import configparser
 
@@ -15,6 +15,6 @@ WRITE_KEYLOGGED_DIR = 'keylogs/keylogs_parsed/'
 ##### email params #####
 
 EMAIL_LOGIN_INFO = configparser.ConfigParser()
-EMAIL_LOGIN_INFO.read('/home/melgazar9/email_login_info.ini')
+EMAIL_LOGIN_INFO.read('/home/{}/email_login_info.ini'.format(getpass.getuser()))
 
 KEYLOG_FILES = glob.glob('./{}/*.py'.format(WRITE_KEYLOG_OUTPATH))
