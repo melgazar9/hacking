@@ -4,7 +4,7 @@ import getpass
 import glob
 import configparser
 
-WRITE_KEYLOG_OUTPATH = 'logs/keylogs/keylog_outputs'
+WRITE_KEYLOG_OUTPATH = 'logs/keylogs/keylog_outputs/'
 WRITE_KEYLOG_FILENAME =  'keylog_' + str(datetime.datetime.today()).replace(' ', '_') + '.txt'
 
 ##### parse keylogged params #####
