@@ -4,16 +4,17 @@ cd
 
 operating_system=`python -c "import platform; print(platform.system())"`
 
-if (($operating_system == Linux))
-    then
-	filepath="$(find -iname autorun_mac.command)"
-elif (($operating_system == Darwin))
-    then
-	filepath="$(mdfind -name autorun_mac.command)"
+
+if [ $operating_system = Linux ];
+    then filepath="$(find -iname autorun_mac.command)"
+elif [ $operating_system == Darwin ];
+    then filepath="$(mdfind -name autorun_mac.command)"
 fi
+
 
 path="${filepath/autorun_mac.command}"
 path="${path/./$(pwd)}"
+
 
 ###################
 ### install pip ###
@@ -24,7 +25,6 @@ py_version="$(which python3)"
 curl -O https://bootstrap.pypa.io/get-pip.py
 "$py_version" get-pip.py
 rm get-pip.py
-
 "$py_version" -m pip install -r "$path"../requirements.txt
 # "$py_version" -m PyInstaller keylogger.py --onefile --hidden-import=pynput.keyboard._xorg --hidden-import=pynput.mouse._xorg --hidden-import=pynput.keyboard._win32 --hidden-import=pynput.mouse._win32
 
